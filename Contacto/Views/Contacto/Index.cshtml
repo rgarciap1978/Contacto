@@ -1,24 +1,25 @@
 ﻿@*asignamos el namespace de donde vamos a sacar los modelos, dto o entidades*@
 @using Contacto.Models
 @*Le decimos a nuestra vista que clase vamos a utilizar como modelo*@
-@model Persona
+@model PersonaModel
 
 @{
     ViewBag.Title = "Formulario de Contacto";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @*Validamos que el modelo venga instanciado correctamente*@
-@if (Model.guagua != null && Model.ListMujeres.Any())
+@*@if (Model.guagua != null && Model.ListMujeres.Any())*@
+@if (Model != null)
 {
     @*Declaramos nuestro form*@
-using (Html.BeginForm("Index", "Contact", FormMethod.Post, new { @id="formulario", @class="form"}))
+using (Html.BeginForm("Index", "Contacto", FormMethod.Post, new { @id="formulario", @class="form"}))
 {
     @Html.ValidationSummary()
 
-    foreach (var item in Model.ListMujeres)
+    @*foreach (var item in Model.ListMujeres)
     {
         <label>@item.NumeroZapato</label>
-    }
+    }*@
 
     <div class="form-group">
         <label>Nombre Completo</label>
