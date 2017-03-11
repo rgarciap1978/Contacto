@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Contacto.Models
 {
-    public class Persona
+    public class PersonaModel
     {
         [Required]
         public string Nombre { get; set; }

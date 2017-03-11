@@ -1,0 +1,32 @@
+﻿@*asignamos el namespace de donde vamos a sacar los modelos, dto o entidades*@
+@using Contacto.Models
+@*Le decimos a nuestra vista que clase vamos a utilizar como modelo*@
+@model IEnumerable<PersonaModel>
+
+@{
+    ViewBag.Title = "Listado de Contacto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>NOMBRE</th>
+                <th>EMAIL</th>
+                <th>TELEFONO</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.Nombre</td>
+                    <td>@item.Email</td>
+                    <td>@item.Telefono</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
