@@ -26,16 +26,16 @@ namespace Contacto.Models
         [MaxLength(50, ErrorMessage = "El {0} no puede superar {1} caracteres")]
         public string Comentario { get; set; }
 
-        public IEnumerable<Mujeres> ListMujeres { get; set; }
+        //public IEnumerable<Mujeres> ListMujeres { get; set; }
 
-        public Hombre guagua { get; set; }
+        //public Hombre guagua { get; set; }
     }
 
-    public class Hombre {
-        public int CantidadJuegosPlay { get; set; }
-    }
+    //public class Hombre {
+    //    public int CantidadJuegosPlay { get; set; }
+    //}
 
-    public class Mujeres {
-        public int NumeroZapato { get; set; }
-    }
+    //public class Mujeres {
+    //    public int NumeroZapato { get; set; }
+    //}
 }

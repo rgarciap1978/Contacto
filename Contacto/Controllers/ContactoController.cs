@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Contacto.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,7 +13,21 @@ namespace Contacto.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            var model = new Persona();
+            return View(model);
         }
+
+        [HttpPost]
+        public ActionResult Index(Persona model) {
+            if (model == null)
+                model = new Persona();
+
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(model);
+        }
+
     }
 }
