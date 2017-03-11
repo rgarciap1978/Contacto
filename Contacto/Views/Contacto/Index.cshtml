@@ -1,0 +1,46 @@
+﻿@*asignamos el namespace de donde vamos a sacar los modelos, dto o entidades*@
+@using Contacto.Models
+@*Le decimos a nuestra vista que clase vamos a utilizar como modelo*@
+@model Persona
+
+@{
+    ViewBag.Title = "Formulario de Contacto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*Validamos que el modelo venga instanciado correctamente*@
+@if (Model.guagua != null && Model.ListMujeres.Any())
+{
+    @*Declaramos nuestro form*@
+using (Html.BeginForm("Index", "Contact", FormMethod.Post, new { @id="formulario", @class="form"}))
+{
+    @Html.ValidationSummary()
+
+    foreach (var item in Model.ListMujeres)
+    {
+        <label>@item.NumeroZapato</label>
+    }
+
+    <div class="form-group">
+        <label>Nombre Completo</label>
+        @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control", placeholder = "Nombre Completo" })
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+    </div>
+        <div class="form-group">
+            <label>Teléfono</label>
+            @Html.TextBoxFor(m => m.Telefono, new { @class = "form-control", placeholder = "Teléfono" })
+        </div>
+        <div class="form-group">
+            <label>Comentario</label>
+            @Html.TextAreaFor(m => m.Comentario, 10, 5, new { @class = "form-control", placeholder = "Comentario" })
+        </div>
+        <button type="submit" class="btn btn-primary" value="Guardar">Guardar</button>
+    }
+
+}
+else
+{
+    @Html.Raw("Error al Crear el modelo")
+}

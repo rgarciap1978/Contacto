@@ -9,6 +9,7 @@ namespace Contacto.Controllers
     public class ContactoController : Controller
     {
         // GET: Contacto
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
